@@ -48,7 +48,7 @@ cat | grep 11),
 это значит, что при запуске
 программы она должна ожидать получения данных
 на стандартный ввод, и, по мере получения достаточного
-количества данных, 
+количества данных,
 должна выводить рассчитанные точки в стандартный вывод;
 Приложение должно быть организовано следующим образом:
 
@@ -114,6 +114,7 @@ x -- точки, расчёт которых для "окон" не требуе
 реализована функцией:
 
 ```haskell
+
 linearInterpolation :: Double -> (Double, Double) -> (Double, Double) -> [Double]
 linearInterpolation step (x1, y1) (x2, y2) =
     let xs = takeWhile (< x2 + step) [x1, x1 + step ..]
@@ -124,6 +125,7 @@ linearInterpolation step (x1, y1) (x2, y2) =
 реализована функцией:
 
 ```haskell
+
 lagrangeInterpolation :: Double
 -> [(Double, Double)] -> 
 [Double]
