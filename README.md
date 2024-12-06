@@ -114,25 +114,23 @@ x -- точки, расчёт которых для "окон" не требуе
 реализована функцией:
 
 ```haskell
-
-linearInterpolation :: Double -> (Double, Double) -> (Double, Double) -> [Double]
-linearInterpolation step (x1, y1) (x2, y2) =
-    let xs = takeWhile (< x2 + step) [x1, x1 + step ..]
-    in map (\x -> y1 + (y2 - y1) * (x - x1) / (x2 - x1)) xs
+  linearInterpolation :: Double -> (Double, Double) -> (Double, Double) -> [Double]
+  linearInterpolation step (x1, y1) (x2, y2) =
+      let xs = takeWhile (< x2 + step) [x1, x1 + step ..]
+     in map (\x -> y1 + (y2 - y1) * (x - x1) / (x2 - x1)) xs
 ```
 
 Интерполяция метода Лагранжа
 реализована функцией:
 
 ```haskell
-
-lagrangeInterpolation :: Double
--> [(Double, Double)] -> 
-[Double]
-lagrangeInterpolation step points =
-    let xs = [fst (head points), fst (head points) +
-    step .. fst (last points) + step]
-    in map (\x -> polynomialInterpolation x points) xs
+  lagrangeInterpolation :: Double
+  -> [(Double, Double)] -> 
+  [Double]
+  lagrangeInterpolation step points =
+     let xs = [fst (head points), fst (head points) +
+      step .. fst (last points) + step]
+      in map (\x -> polynomialInterpolation x points) xs
 ```
 
 Команда для обработки данных с файла
