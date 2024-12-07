@@ -121,9 +121,10 @@ test-suite FunctionalProgrammingLab3-test
     hs-source-dirs:   test
 
     -- The entrypoint to the test suite.
-    main-is:          Main.hs
+    main-is:          Spec.hs
 
     -- Test dependencies.
     build-depends:
         base ^>=4.17.2.1,
-        FunctionalProgrammingLab3
+        FunctionalProgrammingLab3,
+        HUnit
